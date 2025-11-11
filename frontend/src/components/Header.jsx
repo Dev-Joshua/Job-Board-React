@@ -1,6 +1,4 @@
-import '../styles/header.css';
-
-function Header() {
+export function Header() {
   return (
     <>
       <header>
@@ -33,5 +31,3 @@ function Header() {
     </>
   );
 }
-
-export default Header;

@@ -1,7 +1,6 @@
 import { BriefcaseBusiness, Blocks, Users } from 'lucide-react';
-import '../styles/jobsArticles.css';
 
-function JobsArticles() {
+export function JobsArticles() {
   return (
     <>
       <main>
@@ -47,5 +46,3 @@ function JobsArticles() {
     </>
   );
 }
-
-export default JobsArticles;
