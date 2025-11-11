@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export function Pagination({ currentPage = 1, totalPages = 10 }) {
+export function Pagination({ currentPage = 1, totalPages = 10, onPageChange }) {
   // Generar una lista de paginas
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
@@ -15,11 +15,36 @@ export function Pagination({ currentPage = 1, totalPages = 10 }) {
     ? { pointerEvents: 'none', opacity: 0.5 }
     : {};
 
+  // Ir a la pagina anterior
+  const handlePrevClick = (e) => {
+    e.preventDefault();
+    if (isFirstPage === false) {
+      onPageChange(currentPage - 1);
+    }
+  };
+
+  // Ir a la pagina siguiente
+  const handleNextClick = (e) => {
+    e.preventDefault();
+    if (isLastPage === false) {
+      onPageChange(currentPage + 1);
+    }
+  };
+
+  // Cambiar a una pagina especifica
+  const handleChangePage = (event, page) => {
+    event.preventDefault();
+    if (page !== currentPage) {
+      onPageChange(page);
+    }
+  };
+
   return (
     <nav className='pagination'>
       <a
         href='#'
         style={stylePrevButton}
+        onClick={handlePrevClick}
       >
         <ChevronLeft />
       </a>
@@ -29,6 +54,7 @@ export function Pagination({ currentPage = 1, totalPages = 10 }) {
         <a
           href='#'
           className={currentPage === page ? 'is-active' : ''}
+          onClick={(event) => handleChangePage(event, page)}
         >
           {page}
         </a>
@@ -37,6 +63,7 @@ export function Pagination({ currentPage = 1, totalPages = 10 }) {
       <a
         href='#'
         style={styleNextButton}
+        onClick={handleNextClick}
       >
         <ChevronRight />
       </a>
