@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function JobCard({ titulo, empresa, ubicacion, descripcion }) {
+export function JobCard({ job }) {
   const [isApplied, setIsApplied] = React.useState(false);
 
   // Manejar el clic en el botón de aplicar
@@ -13,13 +13,18 @@ export function JobCard({ titulo, empresa, ubicacion, descripcion }) {
   const isAppliedText = isApplied ? 'Sí' : 'No';
 
   return (
-    <article className='job-listing-card'>
+    <article
+      className='job-listing-card'
+      data-modalidad={job.data.modalidad}
+      data-nivel={job.data.nivel}
+      data-technology={job.data.technology}
+    >
       <div>
-        <h3>{titulo}</h3>
+        <h3>{job.titulo}</h3>
         <small>
-          {empresa} | {ubicacion} - ¿Aplicado? {isAppliedText}
+          {job.empresa} | {job.ubicacion} - ¿Aplicado? {isAppliedText}
         </small>
-        <p>{descripcion}</p>
+        <p>{job.descripcion}</p>
       </div>
       <button
         // Agregar la clase 'is-applied' si el trabajo ha sido aplicado
