@@ -1,7 +1,9 @@
+import styles from './Header.module.css';
+
 export function Header() {
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <h1>
           <svg
             fill='none'
@@ -18,15 +20,15 @@ export function Header() {
           DevJobs
         </h1>
 
-        <nav>
+        <nav className={styles.nav}>
           {/* <a href=''> Inicio </a> */}
           <a href=''>Empleos</a>
         </nav>
 
-        <div>
+        {/* <div>
           <a href=''>Publicar un empleo</a>
-          {/* <a href=''>Iniciar sesión</a> */}
-        </div>
+          <a href=''>Iniciar sesión</a>
+        </div> */}
       </header>
     </>
   );

@@ -1,9 +1,11 @@
 import { Search } from 'lucide-react';
 
+import styles from './SearchForm.module.css';
+
 export function SearchFormSection() {
   return (
     <>
-      <section className='jobs-search'>
+      <section className={styles.jobSearch}>
         <h1>Encuentra tu próximo trabajo</h1>
         <p>
           Explora miles de oportunidades laborales en el sector tecnológico.
@@ -12,7 +14,7 @@ export function SearchFormSection() {
           id='jobs-search-form'
           role='search'
         >
-          <div className='search-bar'>
+          <div className={styles.searchBar}>
             <Search className='search-icon' />
             <input
               name='search'
@@ -23,7 +25,7 @@ export function SearchFormSection() {
             />
           </div>
 
-          <div className='search-filters'>
+          <div className={styles.searchFilters}>
             <select
               name='technology'
               id='filter-technology'

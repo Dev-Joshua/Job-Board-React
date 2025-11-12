@@ -1,0 +1,11 @@
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1rem;
+  text-align: center;
+}
+.jobsListings {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+}

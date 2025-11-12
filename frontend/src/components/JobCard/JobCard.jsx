@@ -1,20 +1,21 @@
-import React from 'react';
+import { useState } from 'react';
+import styles from './JobCard.module.css';
 
 export function JobCard({ job }) {
-  const [isApplied, setIsApplied] = React.useState(false);
+  const [isApplied, setIsApplied] = useState(false);
 
   // Manejar el clic en el botón de aplicar
-  function handleClick() {
-    setIsApplied(!isApplied);
+  function handleApplyClick() {
+    setIsApplied(true);
   }
 
   const text = isApplied ? 'Aplicado' : 'Aplicar';
-  const buttonClass = isApplied ? 'is-applied' : '';
+  const buttonClass = isApplied ? styles.isApplied : '';
   const isAppliedText = isApplied ? 'Sí' : 'No';
 
   return (
     <article
-      className='job-listing-card'
+      className={styles.jobListingCard}
       data-modalidad={job.data.modalidad}
       data-nivel={job.data.nivel}
       data-technology={job.data.technology}
@@ -28,8 +29,8 @@ export function JobCard({ job }) {
       </div>
       <button
         // Agregar la clase 'is-applied' si el trabajo ha sido aplicado
-        className={`button-apply-job ${buttonClass}`}
-        onClick={handleClick}
+        className={`${styles.buttonApplyJob} ${buttonClass}`}
+        onClick={handleApplyClick}
       >
         {text}
       </button>

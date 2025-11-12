@@ -1,5 +1,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import styles from './Pagination.module.css';
+
 export function Pagination({ currentPage = 1, totalPages = 10, onPageChange }) {
   // Generar una lista de paginas
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -40,7 +42,7 @@ export function Pagination({ currentPage = 1, totalPages = 10, onPageChange }) {
   };
 
   return (
-    <nav className='pagination'>
+    <nav className={styles.pagination}>
       <a
         href='#'
         style={stylePrevButton}
@@ -54,7 +56,7 @@ export function Pagination({ currentPage = 1, totalPages = 10, onPageChange }) {
         <a
           href='#'
           key={page}
-          className={currentPage === page ? 'is-active' : ''}
+          className={currentPage === page ? styles.isActive : ''}
           onClick={(event) => handleChangePage(event, page)}
         >
           {page}
